@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.titouanmathis.jira-search</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>E529879A-321E-4626-A70A-3F0A489B9754</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>disabled</key>
+	<true/>
+	<key>name</key>
+	<string>Jira</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>jira</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Retrieving suggestions...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Jira issues with suggestions</string>
+				<key>title</key>
+				<string>Search Jira issues</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E529879A-321E-4626-A70A-3F0A489B9754</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>## Configuration
+
+You need to set up the following variables for the workflow to work:
+
+- `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
+- `JIRA_USERNAME`: your username used to connect to Jira
+- `JIRA_TOKEN`: a Jira API token
+
+&gt; You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens).
+
+## Usage
+
+Type `jira` with or without a query and a list of Jira issues will be displayed. You can then press return to open the issue page.
+
+### `jira`
+
+Lists the 10 most recents issues that are assigned to you and unresolved. The following JQL query is used:
+
+```
+assignee = currentUser()
+AND resolution = Unresolved
+ORDER BY updated DESC
+```
+
+### `jira &lt;issueKey&gt;`
+
+Find issues by their key. The following JQL query is used:
+
+```
+issue = '&lt;issueKey&gt;'
+OR issue = '&lt;issueKey&gt;0'
+OR issue = '&lt;issueKey&gt;1'
+OR issue = '&lt;issueKey&gt;2'
+OR issue = '&lt;issueKey&gt;3'
+OR issue = '&lt;issueKey&gt;4'
+OR issue = '&lt;issueKey&gt;5'
+OR issue = '&lt;issueKey&gt;6'
+OR issue = '&lt;issueKey&gt;7'
+OR issue = '&lt;issueKey&gt;8'
+OR issue = '&lt;issueKey&gt;9'
+ORDER BY updated DESC
+```
+
+If you search for `JIRA-10`, all issues between `JIRA-100` and `JIRA-109` will match too.
+
+### `jira &lt;text&gt;`
+
+For all queries not matching the Regex of a Jira issue key, a simple text query will be used:
+
+```
+text ~ '&lt;text&gt;' ORDER BY updated DESC
+```</string>
+	<key>uidata</key>
+	<dict>
+		<key>123FB05C-39F7-4579-BB2E-512EEE97FCAF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>410</integer>
+			<key>ypos</key>
+			<integer>135</integer>
+		</dict>
+		<key>E529879A-321E-4626-A70A-3F0A489B9754</key>
+		<dict>
+			<key>xpos</key>
+			<integer>140</integer>
+			<key>ypos</key>
+			<integer>135</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>JIRA_ACCESS_TOKEN</key>
+		<string></string>
+		<key>JIRA_ORG</key>
+		<string></string>
+		<key>JIRA_USERNAME</key>
+		<string></string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>JIRA_USERNAME</string>
+		<string>JIRA_ACCESS_TOKEN</string>
+		<string>JIRA_ORG</string>
+	</array>
+	<key>version</key>
+	<string></string>
+</dict>
+</plist>

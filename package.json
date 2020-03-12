@@ -1,0 +1,48 @@
+{
+  "name": "alfred-jira-search",
+  "version": "1.0.0",
+  "description": "Alfred workflow to quickly search through your Jira issues",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup",
+    "lint": "eslint --ext .js --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titouanmathis/alfred-jira-search.git"
+  },
+  "keywords": [
+    "alfred",
+    "workflow",
+    "alfred-workflow",
+    "jira",
+    "issue",
+    "ticket",
+    "search",
+    "alfy"
+  ],
+  "author": {
+    "name": "Titouan Mathis",
+    "email": "titouanmathis@gmail.com",
+    "url": "https://www.titouanmathis.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titouanmathis/alfred-jira-search/issues"
+  },
+  "homepage": "https://github.com/titouanmathis/alfred-jira-search#readme",
+  "dependencies": {
+    "alfy": "^0.9.1"
+  },
+  "devDependencies": {
+    "@studiometa/eslint-config": "^2.0.3",
+    "@studiometa/prettier-config": "^2.0.0",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
