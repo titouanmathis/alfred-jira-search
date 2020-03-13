@@ -1,4 +1,5 @@
 const alfy = require('alfy');
+const formatSubtitle = require('./utils/format-subtitle');
 
 const { input } = alfy;
 const config = {
@@ -12,36 +13,36 @@ let query;
 
 if (!input || input.length < 3) {
   query = `
-		assignee = currentUser()
-		AND resolution = Unresolved
-		ORDER BY updated DESC
-	`;
+    assignee = currentUser()
+    AND resolution = Unresolved
+    ORDER BY updated DESC
+  `;
 } else if (input.trim().match(/^[a-zA-Z]+-[0-9]+$/)) {
   const key = input.trim();
   query = `
-			issue = '${key}'
-			OR issue = '${key}0'
-			OR issue = '${key}1'
-			OR issue = '${key}2'
-			OR issue = '${key}3'
-			OR issue = '${key}4'
-			OR issue = '${key}5'
-			OR issue = '${key}6'
-			OR issue = '${key}7'
-			OR issue = '${key}8'
-			OR issue = '${key}9'
-			ORDER BY updated DESC
-		`;
+      issue = '${key}'
+      OR issue = '${key}0'
+      OR issue = '${key}1'
+      OR issue = '${key}2'
+      OR issue = '${key}3'
+      OR issue = '${key}4'
+      OR issue = '${key}5'
+      OR issue = '${key}6'
+      OR issue = '${key}7'
+      OR issue = '${key}8'
+      OR issue = '${key}9'
+      ORDER BY updated DESC
+    `;
 } else {
   query = `
-			text ~ '${input}' ORDER BY updated DESC
-		`;
+      text ~ '${input}' ORDER BY updated DESC
+    `;
 }
 
 query = query.trim();
 
 alfy
-  .fetch(`${config.baseUrl}?jql=${query}&maxResults=10`, {
+  .fetch(`${config.baseUrl}?jql=${query}&maxResults=20`, {
     auth: `${config.username}:${config.token}`,
     maxAge: process.env.MAX_AGE || 3600,
   })
@@ -49,8 +50,8 @@ alfy
     if (!response.issues || response.issues.length <= 0) {
       return alfy.output([
         {
-          title: `Aucun résultat pour "${input}"...`,
-          subtitle: '→ Ouvrir la recherche sur JIRA',
+          title: `No results for "${input}"...`,
+          subtitle: 'Open the JQL search in Jira →',
           arg: `https://${config.org}.atlassian.net/issues/?jql=${query}`,
         },
       ]);
@@ -59,9 +60,7 @@ alfy
     const items = response.issues.map(({ id, key, fields }) => ({
       uid: id,
       title: `${key} – ${fields.summary}`,
-      subtitle: `→ ${fields.status.name} par ${
-        (fields.assignee || { displayName: 'personne' }).displayName
-      }`,
+      subtitle: formatSubtitle(fields),
       arg: `https://${config.org}.atlassian.net/browse/${key}`,
       quicklookurl: `https://${config.org}.atlassian.net/browse/${key}`,
       icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
