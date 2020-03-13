@@ -23,7 +23,7 @@
 		</array>
 	</dict>
 	<key>disabled</key>
-	<true/>
+	<false/>
 	<key>name</key>
 	<string>Jira</string>
 	<key>objects</key>
