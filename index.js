@@ -9,6 +9,12 @@ const config = {
   username: process.env.JIRA_USERNAME,
 };
 
+/**
+ * @see https://support.atlassian.com/jira-software-cloud/docs/advanced-search-reference-jql-functions/
+ * @see https://support.atlassian.com/jira-software-cloud/docs/advanced-search-reference-jql-fields/
+ * @see https://support.atlassian.com/jira-software-cloud/docs/advanced-search-reference-jql-keywords/
+ * @see https://support.atlassian.com/jira-software-cloud/docs/advanced-search-reference-jql-operators/
+ */
 let query;
 
 if (!input || input.length < 3) {
