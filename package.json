@@ -1,6 +1,6 @@
 {
   "name": "alfred-jira-search",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Alfred workflow to quickly search through your Jira issues",
   "main": "index.js",
   "scripts": {
