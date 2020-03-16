@@ -18,7 +18,7 @@ if (!input || input.length < 3) {
     ORDER BY updated DESC
   `;
 } else if (input.trim().match(/^[a-zA-Z]+-[0-9]+$/)) {
-  const key = input.trim();
+  const key = input.trim().toLowerCase();
   query = `
       issue = '${key}'
       OR issue = '${key}0'
