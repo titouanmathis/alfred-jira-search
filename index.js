@@ -1,7 +1,10 @@
-const alfy = require('alfy');
+require('dotenv').config();
+const pkg = require('./package.json');
 const formatSubtitle = require('./utils/format-subtitle');
+const Alfred = require('./utils/alfred');
 
-const { input } = alfy;
+const alfred = new Alfred({ name: `${pkg.name}@${pkg.version}` });
+
 const config = {
   org: process.env.JIRA_ORG,
   baseUrl: `https://${process.env.JIRA_ORG}.atlassian.net/rest/api/3/search`,
@@ -17,14 +20,26 @@ const config = {
  */
 let query;
 
-if (!input || input.length < 3) {
+const MATCH_ISSUE_REGEX = /^[a-zA-Z]+-[0-9]+$/;
+const FILTER_PROJECT_REGEX = /^p\s([a-zA-Z]+)\s?(\s.+)?$/;
+
+const TYPES = {
+  CURRENT_USER: 'CURRENT_USER',
+  ISSUE_KEY: 'ISSUE_KEY',
+  PROJECT_KEY: 'PROJECT_KEY',
+  TEXT: 'TEXT',
+};
+let type = '';
+
+if (!alfred.input || alfred.input.length < 3) {
   query = `
     assignee = currentUser()
     AND resolution = Unresolved
     ORDER BY updated DESC
   `;
-} else if (input.trim().match(/^[a-zA-Z]+-[0-9]+$/)) {
-  const key = input.trim().toLowerCase();
+  type = TYPES.CURRENT_USER;
+} else if (alfred.input.trim().match(MATCH_ISSUE_REGEX)) {
+  const key = alfred.input.trim().toLowerCase();
   query = `
       issue = '${key}'
       OR issue = '${key}0'
@@ -39,28 +54,54 @@ if (!input || input.length < 3) {
       OR issue = '${key}9'
       ORDER BY updated DESC
     `;
+  type = TYPES.ISSUE_KEY;
+} else if (alfred.input.trim().match(FILTER_PROJECT_REGEX)) {
+  const [, project, search] = alfred.input.trim().match(FILTER_PROJECT_REGEX);
+  query = [search ? `text ~ '${search}'` : false, `project = '${project}' ORDER BY updated DESC`]
+    .filter(p => p)
+    .join(' AND ');
+  type = TYPES.PROJECT_KEY;
 } else {
   query = `
-      text ~ '${input}' ORDER BY updated DESC
+      text ~ '${alfred.input}' ORDER BY updated DESC
     `;
+  type = TYPES.TEXT;
 }
 
 query = query.trim();
 
-alfy
-  .fetch(`${config.baseUrl}?jql=${query}&maxResults=20`, {
-    auth: `${config.username}:${config.token}`,
-    maxAge: process.env.MAX_AGE || 3600,
+const url = `${config.baseUrl}?jql=${encodeURI(query)}&maxResults=20`;
+
+/**
+ * Output a "no result" item.
+ */
+function fail() {
+  let title = `No results for "${alfred.input}"...`;
+
+  if (type === TYPES.PROJECT_KEY) {
+    const input = alfred.input.replace(/^p\s/, '');
+    title = `No project found matching "${input}"...`;
+  }
+
+  alfred.output([
+    {
+      title,
+      subtitle: 'Open the JQL search in Jira →',
+      arg: `https://${config.org}.atlassian.net/issues/?jql=${query}`,
+    },
+  ]);
+}
+
+alfred
+  .fetch(url, {
+    auth: {
+      username: config.username,
+      password: config.token,
+    },
   })
   .then(response => {
-    if (!response.issues || response.issues.length <= 0) {
-      return alfy.output([
-        {
-          title: `No results for "${input}"...`,
-          subtitle: 'Open the JQL search in Jira →',
-          arg: `https://${config.org}.atlassian.net/issues/?jql=${query}`,
-        },
-      ]);
+    if (!response || !response.issues || response.issues.length <= 0) {
+      return fail();
     }
 
     const items = response.issues.map(({ id, key, fields }) => ({
@@ -72,8 +113,9 @@ alfy
       icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
     }));
 
-    return alfy.output(items);
-  });
+    return alfred.output(items);
+  })
+  .catch(fail);
 
 // TODO
 // - filter list of actions for a ticket
