@@ -8,7 +8,7 @@
 
 ## Installation
 
-This workflow works on top of alfy, you can install it with NPM: 
+This workflow works on top of alfy, you can install it with NPM:
 
 ```bash
 npm install -g alfred-jira-search
@@ -22,11 +22,11 @@ You need to set up the following variables for the workflow to work:
 
 - `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
 - `JIRA_USERNAME`: your username used to connect to Jira
-- `JIRA_TOKEN`: a Jira API token 
+- `JIRA_TOKEN`: a Jira API token
 
 > You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens).
 
-## Usage 
+## Usage
 
 Type `jira` with or without a query and a list of Jira issues will be displayed. You can then press return to open the issue page.
 
@@ -61,6 +61,14 @@ ORDER BY updated DESC
 
 If you search for `JIRA-10`, all issues between `JIRA-100` and `JIRA-109` will match too.
 
+### `jira p <projectKey>[ <text>]`
+
+List all issues in the given project, and filter them with the `<text>` search query. The following JQL query is used:
+
+```
+[text ~ '<text>' AND ]project = '<projectKey>' ORDER BY updated DESC
+```
+
 ### `jira <text>`
 
 For all queries not matching the Regex of a Jira issue key, a simple text query will be used:
@@ -69,3 +77,14 @@ For all queries not matching the Regex of a Jira issue key, a simple text query 
 text ~ '<text>' ORDER BY updated DESC
 ```
 
+### `jira u <user>` (todo)
+
+Search for users, list all issues assigned to the given user by updated date on activation.
+
+### `jira v <version>` (todo)
+
+Search for versions, list all issues in the version on activation.
+
+### `jira b <board>` (todo)
+
+Search for boards, list all issues in the board on activation.
