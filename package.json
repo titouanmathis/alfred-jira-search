@@ -40,10 +40,10 @@
     "flat-cache": "^2.0.1"
   },
   "devDependencies": {
-    "@studiometa/eslint-config": "^2.0.3",
-    "@studiometa/prettier-config": "^2.0.0",
-    "eslint": "^6.8.0",
-    "prettier": "^1.19.1"
+    "@studiometa/eslint-config": "^2.1.2",
+    "@studiometa/prettier-config": "^2.0.1",
+    "eslint": "^7.6.0",
+    "prettier": "^2.0.5"
   },
   "engines": {
     "node": ">=8"
