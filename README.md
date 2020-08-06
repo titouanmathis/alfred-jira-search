@@ -1,8 +1,8 @@
 # Alfred Jira Search
 
 [![NPM Version](https://img.shields.io/npm/v/alfred-jira-search.svg?style=flat-square)](https://www.npmjs.com/package/alfred-jira-search)
-[![Dependency Status](https://img.shields.io/david/alfred-jira-search.svg?label=deps&style=flat-square)](https://david-dm.org/alfred-jira-search)
-[![devDependency Status](https://img.shields.io/david/dev/alfred-jira-search.svg?label=devDeps&style=flat-square)](https://david-dm.org/alfred-jira-search?type=dev)
+[![Dependency Status](https://img.shields.io/david/titouanmathis/alfred-jira-search?style=flat-square)](https://david-dm.org/titouanmathis/alfred-jira-search)
+[![devDependency Status](https://img.shields.io/david/dev/titouanmathis/alfred-jira-search?style=flat-square)](https://david-dm.org/titouanmathis/alfred-jira-search?type=dev)
 
 > Alfred workflow to quickly search through your Jira issues 🔎
 
