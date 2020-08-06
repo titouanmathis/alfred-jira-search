@@ -21,7 +21,7 @@ const config = {
 let query;
 
 const MATCH_ISSUE_REGEX = /^[a-zA-Z]+-[0-9]+$/;
-const FILTER_PROJECT_REGEX = /^p\s([a-zA-Z]+)\s?(\s.+)?$/;
+const FILTER_PROJECT_REGEX = /^\s([a-zA-Z]+)\s?(\s.+)?$/;
 
 const TYPES = {
   CURRENT_USER: 'CURRENT_USER',
