@@ -106,11 +106,11 @@
 
 You need to set up the following variables for the workflow to work:
 
-- `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
+- `JIRA_URL`: the url of your Jira instance (https://company.atlassian.net) no trailing slash
 - `JIRA_USERNAME`: your username used to connect to Jira
 - `JIRA_TOKEN`: a Jira API token
 
-&gt; You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens).
+&gt; You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens). The URL to create a token will be different for self-managed Jira instances.
 
 ## Usage
 
@@ -175,7 +175,7 @@ text ~ '&lt;text&gt;' ORDER BY updated DESC
 	<dict>
 		<key>JIRA_ACCESS_TOKEN</key>
 		<string></string>
-		<key>JIRA_ORG</key>
+		<key>JIRA_URL</key>
 		<string></string>
 		<key>JIRA_USERNAME</key>
 		<string></string>
@@ -184,7 +184,7 @@ text ~ '&lt;text&gt;' ORDER BY updated DESC
 	<array>
 		<string>JIRA_USERNAME</string>
 		<string>JIRA_ACCESS_TOKEN</string>
-		<string>JIRA_ORG</string>
+		<string>JIRA_URL</string>
 	</array>
 	<key>version</key>
 	<string></string>

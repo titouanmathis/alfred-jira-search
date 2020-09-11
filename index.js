@@ -6,8 +6,8 @@ const Alfred = require('./utils/alfred');
 const alfred = new Alfred({ name: `${pkg.name}@${pkg.version}` });
 
 const config = {
-  org: process.env.JIRA_ORG,
-  baseUrl: `https://${process.env.JIRA_ORG}.atlassian.net/rest/api/3/search`,
+  baseUrl: process.env.JIRA_URL,
+  restUrl: `${process.env.JIRA_URL}/rest/api/3/search`,
   token: process.env.JIRA_ACCESS_TOKEN,
   username: process.env.JIRA_USERNAME,
 };
@@ -70,7 +70,7 @@ if (!alfred.input || alfred.input.length < 3) {
 
 query = query.trim();
 
-const url = `${config.baseUrl}?jql=${encodeURI(query)}&maxResults=20`;
+const url = `${config.restUrl}?jql=${encodeURI(query)}&maxResults=20`;
 
 /**
  * Output a "no result" item.
@@ -87,7 +87,7 @@ function fail() {
     {
       title,
       subtitle: 'Open the JQL search in Jira →',
-      arg: `https://${config.org}.atlassian.net/issues/?jql=${query}`,
+      arg: `${config.baseUrl}/issues/?jql=${query}`,
     },
   ]);
 }
@@ -108,8 +108,8 @@ alfred
       uid: id,
       title: `${key} – ${fields.summary}`,
       subtitle: formatSubtitle(fields),
-      arg: `https://${config.org}.atlassian.net/browse/${key}`,
-      quicklookurl: `https://${config.org}.atlassian.net/browse/${key}`,
+      arg: `${config.baseUrl}/browse/${key}`,
+      quicklookurl: `${config.baseUrl}/browse/${key}`,
       icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
     }));
 

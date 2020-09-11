@@ -20,11 +20,11 @@ Or you can download the worflow from the [releases page](https://github.com/tito
 
 You need to set up the following variables for the workflow to work:
 
-- `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
+- `JIRA_URL`: the url of your Jira instance (https://company.atlassian.net) no trailing slash
 - `JIRA_USERNAME`: your username used to connect to Jira
 - `JIRA_TOKEN`: a Jira API token
 
-> You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens).
+> You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens). The URL to create a token will be different for self-managed Jira instances.
 
 ## Usage
 
