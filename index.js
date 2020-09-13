@@ -107,10 +107,13 @@ alfred
     const items = response.issues.map(({ id, key, fields }) => ({
       uid: id,
       title: `${key} – ${fields.summary}`,
-      subtitle: formatSubtitle(fields),
+      subtitle: `${formatSubtitle(fields)} (⌘+C to copy the issue URL)`,
       arg: `https://${config.org}.atlassian.net/browse/${key}`,
       quicklookurl: `https://${config.org}.atlassian.net/browse/${key}`,
       icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
+      text: {
+        copy: `https://${config.org}.atlassian.net/browse/${key}`,
+      },
     }));
 
     return alfred.output(items);
