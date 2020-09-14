@@ -7,10 +7,27 @@ const alfred = new Alfred({ name: `${pkg.name}@${pkg.version}` });
 
 const config = {
   baseUrl: process.env.JIRA_URL,
-  restUrl: `${process.env.JIRA_URL}/rest/api/3/search`,
-  token: process.env.JIRA_ACCESS_TOKEN,
+  restUrl: `${process.env.JIRA_URL}/rest/api/${process.env.JIRA_REST_VERSION}/search`,
+  token: process.env.JIRA_ACCESS_TOKEN_OR_PW,
   username: process.env.JIRA_USERNAME,
+  restVersion: process.env.JIRA_REST_VERSION,
+  basicAuth: process.env.BASIC_AUTH
 };
+
+let fetchArgs = {};
+
+if ( config.basicAuth == true ) {
+  fetchArgs = {
+    "headers": {"Authorization": "Basic " + Buffer.from(config.username + ":" + config.token).toString('base64')}
+  }
+} else {
+  fetchArgs = {
+    auth: {
+      username: config.username,
+      password: config.token,
+    }
+  }
+}
 
 /**
  * @see https://support.atlassian.com/jira-software-cloud/docs/advanced-search-reference-jql-functions/
@@ -93,12 +110,9 @@ function fail() {
 }
 
 alfred
-  .fetch(url, {
-    auth: {
-      username: config.username,
-      password: config.token,
-    },
-  })
+  .fetch(url,
+    fetchArgs
+  )
   .then(response => {
     if (!response || !response.issues || response.issues.length <= 0) {
       return fail();
