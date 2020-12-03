@@ -1,7 +1,5 @@
 /* eslint-disable class-methods-use-this */
 const os = require('os');
-const axios = require('axios');
-const Cache = require('./cache');
 
 /**
  * Alfred class.
@@ -14,7 +12,6 @@ class Alfred {
    */
   constructor({ name = 'alfred' } = {}) {
     this.name = name;
-    this.cache = new Cache({ name, ttl: 1 });
     process.on('uncaughtException', this.error.bind(this));
     return this;
   }
@@ -24,7 +21,7 @@ class Alfred {
    * @return {Object}
    */
   get meta() {
-    const getEnv = key => process.env[`alfred_${key}`];
+    const getEnv = (key) => process.env[`alfred_${key}`];
 
     return {
       workflow: {
@@ -52,7 +49,7 @@ class Alfred {
    * @return {Object}
    */
   get icons() {
-    const getIcon = name =>
+    const getIcon = (name) =>
       `/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/${name}.icns`;
 
     return {
@@ -71,41 +68,19 @@ class Alfred {
    * @return {String}
    */
   get input() {
-    return process.argv[2] || '';
-    // return removeDiacritics(process.argv[2] || '');
+    return process.argv.slice(2).join(' ') || '';
   }
 
   /**
    * Output data.
    *
-   * @param  {Object|Array} data The data to output.
+   * @param  {Object|Array} data       The data to output.
+   * @param  {Object}       opts       Additional options.
+   * @param  {Number}       opts.rerun The delay between Alfred reruns.
    * @return {void}
    */
-  output(items) {
-    console.log(JSON.stringify({ items }, null, '\t'));
-  }
-
-  /**
-   * Fetch data with axios
-   * @param  {String}  url     The URL to fetch.
-   * @param  {Object}  options Options for the request.
-   * @return {Promise}        The fetch promise.
-   */
-  async fetch(url, options) {
-    let key = `${url}-${JSON.stringify(options)}`;
-    key = key.replace(/\s/g, '');
-
-    if (this.cache.get(key)) {
-      return this.cache.get(key);
-    }
-
-    try {
-      const response = await axios(url, options);
-      this.cache.set(key, response.data);
-      return response.data;
-    } catch (error) {
-      throw new Error(error);
-    }
+  output(items, { rerun = 1, variables = {} } = {}) {
+    console.log(JSON.stringify({ items, rerun, variables }, null, '\t'));
   }
 
   /**
