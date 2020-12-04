@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.titouanmathis.alfred-jira-search</string>
 	<key>version</key>
-	<string>2.0.2</string>
+	<string>2.0.3</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -1028,7 +1028,20 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>## Usage
+
+Use `jj` to display and filter all the unresolved Jira issues of your Jira cloud instance. 
+
+Use `ju` to force update the local data (default cache is 5min).
+
+## Filtering
+
+When using the `jj` command, some smart filtering can be done:
+
+- Filter by project: `jj p=&lt;PROJECT_KEY&gt;`
+- Filter by assignee: `jj u=&lt;USERNAME&gt;`
+- Filter by status: `jj s=&lt;STATUS&gt;`
+- Filter by sprint status: `jj sp=&lt;SPRINT_STATUS&gt;`</string>
 	<key>uidata</key>
 	<dict>
 		<key>00B19AB7-7C39-4660-A7DB-4FA5900A7032</key>
