@@ -1,0 +1,9 @@
+src/
+!alfred-jira-search.alfredworkflow
+.github/
+.editorconfig
+.eslintrc.js
+.prettierrc.js
+.nvmrc
+*.md
+*.sublime-*
