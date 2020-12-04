@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.titouanmathis.alfred-jira-search</string>
 	<key>version</key>
-	<string>2.0.1</string>
+	<string>2.0.2</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
