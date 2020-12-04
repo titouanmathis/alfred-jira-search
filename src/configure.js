@@ -1,4 +1,3 @@
-require('dotenv').config();
 const pkg = require('./package.json');
 const Alfred = require('./utils/alfred');
 

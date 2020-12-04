@@ -12,7 +12,7 @@ if (!(config.get('org') && config.get('token') && config.get('username'))) {
       {
         title: 'The workflow is not configured yet.',
         subtitle: 'Press ⏎ to configure the required values.',
-        arg: 'jconf',
+        arg: 'conf',
       },
     ],
     {
