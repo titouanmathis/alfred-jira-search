@@ -8,17 +8,11 @@
 
 ## Installation
 
-This workflow works on top of alfy, you can install it with NPM:
-
-```bash
-npm install -g alfred-jira-search
-```
-
-Or you can download the worflow from the [releases page](https://github.com/titouanmathis/alfred-jira-search/releases).
+Download the latest worflow from the [releases page](https://github.com/titouanmathis/alfred-jira-search/releases). You will be notified of future updates within Alfred.
 
 ## Configuration
 
-You need to set up the following variables for the workflow to work:
+You will be asked to configure the workflow with the following values :
 
 - `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
 - `JIRA_USERNAME`: your username used to connect to Jira
@@ -28,63 +22,23 @@ You need to set up the following variables for the workflow to work:
 
 ## Usage
 
-Type `jira` with or without a query and a list of Jira issues will be displayed. You can then press return to open the issue page.
+| Command | Action |
+|-|-|
+| `jj` | Display a list of unresolved issues sorted by their last updated date. The list is filtered by Alfred. |
+| `ju` | Force update the local data |
 
-### `jira`
+When using the `jj` command, some smart filtering can be done:
 
-Lists the 10 most recents issues that are assigned to you and unresolved. The following JQL query is used:
+```bash
+# Filter by project
+jj p=<PROJECT_KEY>
 
+# Filter by assignee
+jj u=<USERNAME>
+
+# Filter by status
+jj s=<STATUS>
+
+# Filter by sprint status
+jj sp=<SPRINT_STATUS>
 ```
-assignee = currentUser()
-AND resolution = Unresolved
-ORDER BY updated DESC
-```
-
-### `jira <issueKey>`
-
-Find issues by their key. The following JQL query is used:
-
-```
-issue = '<issueKey>'
-OR issue = '<issueKey>0'
-OR issue = '<issueKey>1'
-OR issue = '<issueKey>2'
-OR issue = '<issueKey>3'
-OR issue = '<issueKey>4'
-OR issue = '<issueKey>5'
-OR issue = '<issueKey>6'
-OR issue = '<issueKey>7'
-OR issue = '<issueKey>8'
-OR issue = '<issueKey>9'
-ORDER BY updated DESC
-```
-
-If you search for `JIRA-10`, all issues between `JIRA-100` and `JIRA-109` will match too.
-
-### `jira p <projectKey>[ <text>]`
-
-List all issues in the given project, and filter them with the `<text>` search query. The following JQL query is used:
-
-```
-[text ~ '<text>' AND ]project = '<projectKey>' ORDER BY updated DESC
-```
-
-### `jira <text>`
-
-For all queries not matching the Regex of a Jira issue key, a simple text query will be used:
-
-```
-text ~ '<text>' ORDER BY updated DESC
-```
-
-### `jira u <user>` (todo)
-
-Search for users, list all issues assigned to the given user by updated date on activation.
-
-### `jira v <version>` (todo)
-
-Search for versions, list all issues in the version on activation.
-
-### `jira b <board>` (todo)
-
-Search for boards, list all issues in the board on activation.

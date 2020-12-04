@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "alfy-init",
-    "preuninstall": "alfy-cleanup",
-    "lint": "eslint --ext .js --ignore-path .gitignore ."
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "version": "if [ -z \"$VERSION\" ]; then echo '$VERSION is required.\n' && exit 1; fi; npm run version:wf && npm run version:plist && npm run version:pkg",
+    "version:pkg": "sed -i '' \"s/$npm_package_version/$VERSION/\" package.json",
+    "version:wf": "sed -i '' \"s/$npm_package_version/$VERSION/\" ./src/package.json",
+    "version:plist": "sed -i '' \"s#<string>$npm_package_version</string>#<string>$VERSION</string>#\" ./src/info.plist",
+    "build": "cd src/ && npm ci && zip -r ../alfred-jira-search.alfredworkflow .",
+    "postinstall": "npm run build && open alfred-jira-search.alfredworkflow"
   },
   "repository": {
     "type": "git",
@@ -33,15 +37,11 @@
     "url": "https://github.com/titouanmathis/alfred-jira-search/issues"
   },
   "homepage": "https://github.com/titouanmathis/alfred-jira-search#readme",
-  "dependencies": {
-    "alfy": "^0.9.1",
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "flat-cache": "^2.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@studiometa/eslint-config": "^2.1.2",
     "@studiometa/prettier-config": "^2.0.1",
+    "@types/node": "^14.14.10",
     "eslint": "^7.6.0",
     "prettier": "^2.0.5"
   },
