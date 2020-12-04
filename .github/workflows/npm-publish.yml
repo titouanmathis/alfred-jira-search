@@ -17,6 +17,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm run build
+        with:
+          name: Workflow package
+          path: alfred-jira-search.alfredworkflow
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
