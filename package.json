@@ -1,6 +1,6 @@
 {
   "name": "alfred-jira-search",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Alfred workflow to quickly search through your Jira issues",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "version:wf": "sed -i '' \"s#\\\"$npm_package_version\\\"#\\\"$VERSION\\\"#\" ./src/package.json",
     "version:plist": "sed -i '' \"s#<string>$npm_package_version</string>#<string>$VERSION</string>#\" ./src/info.plist",
     "build": "cd src/ && npm ci && zip -r ../alfred-jira-search.alfredworkflow .",
-    "postinstall": "npm run build && open alfred-jira-search.alfredworkflow"
+    "prepublishOnly": "npm run build",
+    "postinstall": "if [ -n \"$npm_config_global\" ]; then open alfred-jira-search.alfredworkflow; fi;"
   },
   "repository": {
     "type": "git",
