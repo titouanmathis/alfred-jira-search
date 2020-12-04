@@ -12,7 +12,6 @@ const config = new Conf({
     },
   },
   serialize: (value) => JSON.stringify(value),
-
 });
 
 module.exports = config;

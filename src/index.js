@@ -21,7 +21,7 @@ if (!(config.get('org') && config.get('token') && config.get('username'))) {
   );
 }
 
-if (config.get('shouldUpdate') || true) {
+if (config.get('shouldUpdate')) {
   return alfred.output(
     [
       {

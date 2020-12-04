@@ -49,6 +49,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>CDBFFFDA-E86E-47CA-A2B0-CC9F47335EFB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>D20EE1F8-DBBC-451D-B460-69F142785C38</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -153,7 +165,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</string>
+				<string>E87618D0-8FE8-4F59-AD38-B83CC662D91C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -728,27 +740,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string>{query} {var:latestVersion}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>9D16A68D-60F4-48D7-8F73-C1A53DC4D173</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -773,17 +764,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string>'{query}', {allvars}</string>
-				<key>cleardebuggertext</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>processoutputs</key>
-				<true/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Latest version successfully downloaded!</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.debug</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</string>
+			<string>E87618D0-8FE8-4F59-AD38-B83CC662D91C</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -898,6 +893,27 @@
 			<string>908C9B0F-86E6-4A5B-9FD2-8C3D7677988F</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Starting to update the workflow...</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>CDBFFFDA-E86E-47CA-A2B0-CC9F47335EFB</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1027,19 +1043,12 @@
 			<key>ypos</key>
 			<integer>150</integer>
 		</dict>
-		<key>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</key>
-		<dict>
-			<key>xpos</key>
-			<integer>565</integer>
-			<key>ypos</key>
-			<integer>300</integer>
-		</dict>
 		<key>123FB05C-39F7-4579-BB2E-512EEE97FCAF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>400</integer>
+			<integer>275</integer>
 			<key>ypos</key>
-			<integer>470</integer>
+			<integer>425</integer>
 		</dict>
 		<key>25DE9561-471B-4BBE-B181-A7ADDDAB25B7</key>
 		<dict>
@@ -1107,9 +1116,9 @@
 		<key>945DB27A-4385-4F3F-AD72-FBC3331F9CFE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>415</integer>
+			<integer>450</integer>
 			<key>ypos</key>
-			<integer>270</integer>
+			<integer>265</integer>
 		</dict>
 		<key>99CB18DF-F47A-4B34-8801-92A0AD7878D4</key>
 		<dict>
@@ -1117,13 +1126,6 @@
 			<integer>965</integer>
 			<key>ypos</key>
 			<integer>45</integer>
-		</dict>
-		<key>9D16A68D-60F4-48D7-8F73-C1A53DC4D173</key>
-		<dict>
-			<key>xpos</key>
-			<integer>635</integer>
-			<key>ypos</key>
-			<integer>270</integer>
 		</dict>
 		<key>A5F8879A-6C25-4D1C-A887-8F0BFCE244CD</key>
 		<dict>
@@ -1160,6 +1162,13 @@
 			<key>ypos</key>
 			<integer>570</integer>
 		</dict>
+		<key>CDBFFFDA-E86E-47CA-A2B0-CC9F47335EFB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>390</integer>
+		</dict>
 		<key>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</key>
 		<dict>
 			<key>xpos</key>
@@ -1173,6 +1182,13 @@
 			<integer>25</integer>
 			<key>ypos</key>
 			<integer>130</integer>
+		</dict>
+		<key>E87618D0-8FE8-4F59-AD38-B83CC662D91C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>265</integer>
 		</dict>
 		<key>FC9A6F6D-A0E1-4451-B040-10E8A8685704</key>
 		<dict>

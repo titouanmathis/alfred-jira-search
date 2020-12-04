@@ -20,7 +20,6 @@ function formatTime(seconds) {
   return time.join(' ');
 }
 
-
 /**
  * Format the subtitle of an item based on the fields of an issue.
  *
@@ -31,7 +30,7 @@ function formatTime(seconds) {
  * @return {String}                      A formatted string
  */
 function formatSubtitle({ status, assignee, timespent, timeestimate }) {
-  const subtitle = [status.name, assignee ? assignee.displayName : 'unassigned'];
+  const subtitle = [status.name.trim(), assignee ? assignee.displayName : 'unassigned'];
 
   if (timespent || timeestimate) {
     subtitle.push(`${formatTime(timespent) || '…'} / ${formatTime(timeestimate) || '…'}`);
@@ -59,6 +58,16 @@ module.exports = (config, issues) =>
     get match() {
       const project = key.split('-').shift();
       const assignee = fields.assignee ? fields.assignee.displayName : 'unassigned';
-      return `p=${project} u=${assignee} s=${fields.status.name} ${this.title}`;
+
+      // Add sprint state
+      let sprint = '';
+      if (Array.isArray(fields.customfield_10006)) {
+        const latestSprintData = fields.customfield_10006.pop();
+        if (latestSprintData && latestSprintData.state) {
+          sprint = `sp=${latestSprintData.state}`;
+        }
+      }
+
+      return `p=${project} u=${assignee} s=${fields.status.name} ${sprint} ${key} ${fields.summary}`;
     },
   }));

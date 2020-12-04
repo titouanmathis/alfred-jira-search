@@ -18,6 +18,7 @@ const fields = [
   'timespent',
   'timeestimate',
   'updated',
+  'customfield_10006',
 ].join(',');
 
 const MAX_RESULTS = 100;
@@ -39,7 +40,7 @@ const issues = [];
  * Save data at the end.
  */
 function end() {
-  console.log('Saving results to cache...');
+  console.log(`Saving results in ${data.path}...`);
   data.set({
     items: issues.flat(),
     updated: Date.now(),
