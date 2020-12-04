@@ -18,6 +18,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
         with:
           name: Workflow package
           path: alfred-jira-search.alfredworkflow
