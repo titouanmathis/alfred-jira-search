@@ -40,7 +40,7 @@
   "dependencies": {},
   "devDependencies": {
     "@studiometa/eslint-config": "^2.1.2",
-    "@studiometa/prettier-config": "^2.0.1",
+    "@studiometa/prettier-config": "^2.0.2",
     "@types/node": "^14.14.10",
     "eslint": "^7.6.0",
     "prettier": "^2.0.5"
