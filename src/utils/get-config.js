@@ -12,6 +12,12 @@ const config = new Conf({
     username: {
       type: 'string',
     },
+    shouldUpdate: {
+      type: 'boolean',
+    },
+    latestVersion: {
+      type: 'string',
+    },
   },
 });
 

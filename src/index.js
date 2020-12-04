@@ -1,15 +1,17 @@
-const childProcess = require('child_process');
-
 const alfred = require('./utils/get-alfred');
 const config = require('./utils/get-config');
 const data = require('./utils/get-data-config');
+const runBackground = require('./utils/run-background');
+
+// Check the latest version
+runBackground('check-version.js');
 
 if (!(config.get('org') && config.get('token') && config.get('username'))) {
   return alfred.output(
     [
       {
         title: 'The workflow is not configured yet.',
-        subtitle: 'Press ↩︎ to configure the required values.',
+        subtitle: 'Press ⏎ to configure the required values.',
         arg: 'jconf',
       },
     ],
@@ -19,12 +21,21 @@ if (!(config.get('org') && config.get('token') && config.get('username'))) {
   );
 }
 
+if (config.get('shouldUpdate') || true) {
+  return alfred.output(
+    [
+      {
+        title: '🎉 A new version is available!',
+        subtitle: 'Press ⏎ to install it automatically.',
+        arg: 'update',
+      },
+    ],
+    { variables: config.store }
+  );
+}
+
 // Update data in the background
-const child = childProcess.spawn('./node_modules/.bin/run-node', ['get-data.js'], {
-  detached: true,
-  stdio: 'ignore',
-});
-child.unref();
+runBackground('get-data.js');
 
 const issues = data.get('items') || [];
 

@@ -37,6 +37,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>945DB27A-4385-4F3F-AD72-FBC3331F9CFE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>D20EE1F8-DBBC-451D-B460-69F142785C38</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -59,8 +71,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>61B41CE4-A7FE-489E-9100-8A9941753269</key>
-		<array/>
 		<key>639E3A4E-91ED-4CA0-AF7C-5402710650FF</key>
 		<array>
 			<dict>
@@ -113,11 +123,37 @@
 				<false/>
 			</dict>
 		</array>
+		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>413EC2EE-73B0-4AA3-8C8E-24561DDCF51F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>908C9B0F-86E6-4A5B-9FD2-8C3D7677988F</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>25DE9561-471B-4BBE-B181-A7ADDDAB25B7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>945DB27A-4385-4F3F-AD72-FBC3331F9CFE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -144,6 +180,29 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>FCB220F2-040B-41EA-90EB-10657C2939C1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A62279E7-77C3-43D1-B7C0-E08C3EEA7889</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C40BDC92-8E13-46F6-BE43-A07F107DD105</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8AC8E160-F7AF-45DF-9224-23D30C766E16</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -204,6 +263,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>C40BDC92-8E13-46F6-BE43-A07F107DD105</key>
+		<array/>
 		<key>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</key>
 		<array>
 			<dict>
@@ -244,23 +305,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>concurrently</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira token has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node configure.js --token "{query}" --save</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>775E01DA-4A2B-42F4-BA8C-99CA8AFF0240</string>
+			<string>77187584-E6CD-4D35-9432-3FACB301C9DF</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -312,25 +375,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node configure.js --token "{query}" --save</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira token has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>77187584-E6CD-4D35-9432-3FACB301C9DF</string>
+			<string>775E01DA-4A2B-42F4-BA8C-99CA8AFF0240</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -527,6 +588,20 @@
 						<key>uid</key>
 						<string>A8FAC688-62B4-491F-BCD9-C8A5242F4974</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>update</string>
+						<key>outputlabel</key>
+						<string>Update</string>
+						<key>uid</key>
+						<string>D20EE1F8-DBBC-451D-B460-69F142785C38</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
@@ -535,27 +610,6 @@
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>04986CE9-10B2-4550-B820-A0230F300ABF</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira organization name has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>FCB220F2-040B-41EA-90EB-10657C2939C1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -632,6 +686,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira organization name has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FCB220F2-040B-41EA-90EB-10657C2939C1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -653,19 +728,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>subtext</key>
-				<string>Generate one on https://id.atlassian.net</string>
-				<key>text</key>
-				<string>Configure your Jira token</string>
-				<key>withspace</key>
+				<key>lastpathcomponent</key>
 				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>{query} {var:latestVersion}</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>61B41CE4-A7FE-489E-9100-8A9941753269</string>
+			<string>9D16A68D-60F4-48D7-8F73-C1A53DC4D173</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -677,7 +754,8 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>open "$1"</string>
+				<string>echo 'dd'
+./node_modules/.bin/run-node update-workflow.js</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -688,9 +766,26 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
+			<string>945DB27A-4385-4F3F-AD72-FBC3331F9CFE</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>'{query}', {allvars}</string>
+				<key>cleardebuggertext</key>
+				<false/>
+				<key>processoutputs</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.debug</string>
+			<key>uid</key>
+			<string>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -742,6 +837,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira username has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FC9A6F6D-A0E1-4451-B040-10E8A8685704</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -765,27 +881,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira username has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>FC9A6F6D-A0E1-4451-B040-10E8A8685704</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -804,6 +899,115 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Updating the local data...</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>C40BDC92-8E13-46F6-BE43-A07F107DD105</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ju</string>
+				<key>subtext</key>
+				<string>Press ⏎ to update the local data</string>
+				<key>text</key>
+				<string>Update local data</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A62279E7-77C3-43D1-B7C0-E08C3EEA7889</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>The local data has been updated!</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>413EC2EE-73B0-4AA3-8C8E-24561DDCF51F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node update-data.js --force</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8AC8E160-F7AF-45DF-9224-23D30C766E16</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -819,16 +1023,23 @@
 		<key>04986CE9-10B2-4550-B820-A0230F300ABF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>195</integer>
+			<integer>190</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>150</integer>
+		</dict>
+		<key>09595A3D-4FBD-4543-A5BE-7FA99F1D505D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>565</integer>
+			<key>ypos</key>
+			<integer>300</integer>
 		</dict>
 		<key>123FB05C-39F7-4579-BB2E-512EEE97FCAF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>325</integer>
+			<integer>400</integer>
 			<key>ypos</key>
-			<integer>310</integer>
+			<integer>470</integer>
 		</dict>
 		<key>25DE9561-471B-4BBE-B181-A7ADDDAB25B7</key>
 		<dict>
@@ -837,12 +1048,12 @@
 			<key>ypos</key>
 			<integer>345</integer>
 		</dict>
-		<key>61B41CE4-A7FE-489E-9100-8A9941753269</key>
+		<key>413EC2EE-73B0-4AA3-8C8E-24561DDCF51F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>640</integer>
+			<integer>655</integer>
 			<key>ypos</key>
-			<integer>260</integer>
+			<integer>665</integer>
 		</dict>
 		<key>639E3A4E-91ED-4CA0-AF7C-5402710650FF</key>
 		<dict>
@@ -879,12 +1090,26 @@
 			<key>ypos</key>
 			<integer>115</integer>
 		</dict>
+		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>665</integer>
+		</dict>
 		<key>908C9B0F-86E6-4A5B-9FD2-8C3D7677988F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>855</integer>
 			<key>ypos</key>
 			<integer>375</integer>
+		</dict>
+		<key>945DB27A-4385-4F3F-AD72-FBC3331F9CFE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>415</integer>
+			<key>ypos</key>
+			<integer>270</integer>
 		</dict>
 		<key>99CB18DF-F47A-4B34-8801-92A0AD7878D4</key>
 		<dict>
@@ -893,12 +1118,26 @@
 			<key>ypos</key>
 			<integer>45</integer>
 		</dict>
+		<key>9D16A68D-60F4-48D7-8F73-C1A53DC4D173</key>
+		<dict>
+			<key>xpos</key>
+			<integer>635</integer>
+			<key>ypos</key>
+			<integer>270</integer>
+		</dict>
 		<key>A5F8879A-6C25-4D1C-A887-8F0BFCE244CD</key>
 		<dict>
 			<key>xpos</key>
 			<integer>1150</integer>
 			<key>ypos</key>
 			<integer>200</integer>
+		</dict>
+		<key>A62279E7-77C3-43D1-B7C0-E08C3EEA7889</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>665</integer>
 		</dict>
 		<key>BAF0ADEB-57C2-4F21-A0B6-75394A49F5EE</key>
 		<dict>
@@ -914,6 +1153,13 @@
 			<key>ypos</key>
 			<integer>105</integer>
 		</dict>
+		<key>C40BDC92-8E13-46F6-BE43-A07F107DD105</key>
+		<dict>
+			<key>xpos</key>
+			<integer>245</integer>
+			<key>ypos</key>
+			<integer>570</integer>
+		</dict>
 		<key>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</key>
 		<dict>
 			<key>xpos</key>
@@ -924,9 +1170,9 @@
 		<key>E529879A-321E-4626-A70A-3F0A489B9754</key>
 		<dict>
 			<key>xpos</key>
-			<integer>30</integer>
+			<integer>25</integer>
 			<key>ypos</key>
-			<integer>115</integer>
+			<integer>130</integer>
 		</dict>
 		<key>FC9A6F6D-A0E1-4451-B040-10E8A8685704</key>
 		<dict>
@@ -943,8 +1189,8 @@
 			<integer>200</integer>
 		</dict>
 	</dict>
-  <key>version</key>
-  <string>1.1.2</string>
+	<key>version</key>
+	<string>1.1.2</string>
 	<key>webaddress</key>
 	<string>https://www.titouanmathis.com</string>
 </dict>

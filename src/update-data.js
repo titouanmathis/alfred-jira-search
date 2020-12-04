@@ -22,7 +22,7 @@ const fields = [
 
 const MAX_RESULTS = 100;
 
-const MAX_AGE = 1000 * 60 * 1; // 1000ms * 60s * 1min = 1min
+const MAX_AGE = 1000 * 60 * 5; // 1000ms * 60s * 5min = 5min
 
 const instance = axios.create({
   baseURL: `https://${config.get('org')}.atlassian.net/rest/api/3/search/`,
@@ -89,7 +89,7 @@ if (!force && lastUpdated && Date.now() - lastUpdated < MAX_AGE) {
 firstBatch().then((result) => {
   let offset = MAX_RESULTS;
 
-  while (offset < result.total) {
+  while (offset <= result.total) {
     queue.add(0, getPageResult(offset));
     offset += MAX_RESULTS;
   }
