@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "version": "if [ -z \"$VERSION\" ]; then echo '$VERSION is required.\n' && exit 1; fi; npm run version:wf && npm run version:plist && npm run version:pkg",
-    "version:pkg": "sed -i '' \"s/$npm_package_version/$VERSION/\" package.json",
-    "version:wf": "sed -i '' \"s/$npm_package_version/$VERSION/\" ./src/package.json",
+    "version:pkg": "sed -i '' \"s#\\\"$npm_package_version\\\"#\\\"$VERSION\\\"#\" package.json",
+    "version:wf": "sed -i '' \"s#\\\"$npm_package_version\\\"#\\\"$VERSION\\\"#\" ./src/package.json",
     "version:plist": "sed -i '' \"s#<string>$npm_package_version</string>#<string>$VERSION</string>#\" ./src/info.plist",
     "build": "cd src/ && npm ci && zip -r ../alfred-jira-search.alfredworkflow .",
     "postinstall": "npm run build && open alfred-jira-search.alfredworkflow"
@@ -40,7 +40,7 @@
   "dependencies": {},
   "devDependencies": {
     "@studiometa/eslint-config": "^2.1.2",
-    "@studiometa/prettier-config": "^2.0.2",
+    "@studiometa/prettier-config": "^2.0.1",
     "@types/node": "^14.14.10",
     "eslint": "^7.6.0",
     "prettier": "^2.0.5"
