@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.titouanmathis.jira-search</string>
+	<string>com.titouanmathis.alfred-jira-search</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -231,6 +231,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>createdby</key>
+	<string>Titouan Mathis</string>
+	<key>description</key>
+	<string>Search unresolved Jira issues with Alfred</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -240,25 +244,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node configure.js --token "{query}" --save</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira token has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>77187584-E6CD-4D35-9432-3FACB301C9DF</string>
+			<string>775E01DA-4A2B-42F4-BA8C-99CA8AFF0240</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -310,23 +312,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>concurrently</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira token has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node configure.js --token "{query}" --save</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>775E01DA-4A2B-42F4-BA8C-99CA8AFF0240</string>
+			<string>77187584-E6CD-4D35-9432-3FACB301C9DF</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -486,6 +490,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>.*</string>
+				<key>regexcaseinsensitive</key>
+				<true/>
+				<key>regexmultiline</key>
+				<true/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -516,23 +541,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>matchmode</key>
-				<integer>1</integer>
-				<key>matchstring</key>
-				<string>.*</string>
-				<key>regexcaseinsensitive</key>
-				<true/>
-				<key>regexmultiline</key>
-				<true/>
-				<key>replacestring</key>
-				<string></string>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira organization name has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.replace</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</string>
+			<string>FCB220F2-040B-41EA-90EB-10657C2939C1</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -603,27 +628,6 @@
 			<string>639E3A4E-91ED-4CA0-AF7C-5402710650FF</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira organization name has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>FCB220F2-040B-41EA-90EB-10657C2939C1</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -738,27 +742,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Your Jira username has been saved.</string>
-				<key>title</key>
-				<string>Alfred Jira Search</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>FC9A6F6D-A0E1-4451-B040-10E8A8685704</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -778,6 +761,27 @@
 			<string>00B19AB7-7C39-4660-A7DB-4FA5900A7032</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your Jira username has been saved.</string>
+				<key>title</key>
+				<string>Alfred Jira Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>FC9A6F6D-A0E1-4451-B040-10E8A8685704</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -939,22 +943,9 @@
 			<integer>200</integer>
 		</dict>
 	</dict>
-	<key>variables</key>
-	<dict>
-		<key>JIRA_ACCESS_TOKEN</key>
-		<string></string>
-		<key>JIRA_ORG</key>
-		<string></string>
-		<key>JIRA_USERNAME</key>
-		<string></string>
-	</dict>
-	<key>variablesdontexport</key>
-	<array>
-		<string>JIRA_USERNAME</string>
-		<string>JIRA_ACCESS_TOKEN</string>
-		<string>JIRA_ORG</string>
-	</array>
-	<key>version</key>
-	<string></string>
+  <key>version</key>
+  <string>1.1.2</string>
+	<key>webaddress</key>
+	<string>https://www.titouanmathis.com</string>
 </dict>
 </plist>
