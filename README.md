@@ -14,11 +14,9 @@ Download the latest worflow from the [releases page](https://github.com/titouanm
 
 You will be asked to configure the workflow with the following values :
 
-- `JIRA_ORG`: the name of your Jira organization (https://{JIRA_ORG}.atlassian.net)
-- `JIRA_USERNAME`: your username used to connect to Jira
-- `JIRA_TOKEN`: a Jira API token
-
-> You can create an API token by logging in to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens).
+- The name of your Jira organization (`JIRA_ORG` in `https://JIRA_ORG.atlassian.net`)
+- Your Jira username which usually is your email
+- A Jira API token (create one at [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens)).
 
 ## Usage
 
@@ -26,6 +24,7 @@ You will be asked to configure the workflow with the following values :
 |-|-|
 | `jj` | Display a list of unresolved issues sorted by their last updated date. The list is filtered by Alfred. |
 | `ju` | Force update the local data |
+| `jconf` | Edit the workflow configuration |
 
 When using the `jj` command, some smart filtering can be done:
 
