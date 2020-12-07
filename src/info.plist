@@ -747,8 +747,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo 'dd'
-./node_modules/.bin/run-node update-workflow.js</string>
+				<string>./node_modules/.bin/run-node update-workflow.js</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
