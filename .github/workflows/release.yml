@@ -24,6 +24,11 @@ jobs:
       - name: Prepare the changelog from the tag message
         id: prepare_changelog
         run: |
+          # Parse version
+          VERSION=${GITHUB_REF/refs\/tags\//}
+          echo "Setting release version to $VERSION"
+          echo "::set-env name=RELEASE_VERSION::$VERSION"
+
           # Parse tag message
           CHANGELOG=$(git tag -l --format='%(contents)' $GITHUB_REF | tail -n+3)
 
@@ -38,6 +43,13 @@ jobs:
           # Remove PGP signature
           CHANGELOG="${CHANGELOG%-----BEGIN*}"
 
+          # Change linebreaks and other special characters
+          CHANGELOG="${CHANGELOG//'%'/'%25'}"
+          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
+          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+
+          echo "Setting changelog body to\n\n$CHANGELOG\n"
+
           echo 'changelog<<EOF' >> $GITHUB_ENV
           echo $CHANGELOG >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
@@ -50,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: v${{ github.ref }}
+          release_name: v${{ env.RELEASE_VERSION }}
           body: ${{ env.GITHUB_ENV.changelog }}
           draft: false
           prerelease: false
