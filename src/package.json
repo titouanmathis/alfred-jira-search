@@ -1,6 +1,6 @@
 {
   "name": "alfred-jira-search",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "homepage": "https://github.com/titouanmathis/alfred-jira-search",
   "dependencies": {
     "axios": "^0.21.0",
