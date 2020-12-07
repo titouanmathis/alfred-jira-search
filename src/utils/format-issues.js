@@ -43,7 +43,7 @@ module.exports = (config, issues) =>
   issues.map(({ id, key, fields }) => ({
     uid: id,
     title: `${key} – ${fields.summary}`,
-    subtitle: `${formatSubtitle(fields)} (⌘+C to copy the issue key)`,
+    subtitle: `${formatSubtitle(fields)}`,
     arg: `https://${config.get('org')}.atlassian.net/browse/${key}`,
     quicklookurl: `https://${config.get('org')}.atlassian.net/browse/${key}`,
     icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
