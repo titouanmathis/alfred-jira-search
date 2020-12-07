@@ -6,6 +6,7 @@ const { getRelease } = require('get-release');
 const gh = require('parse-github-url');
 const pkg = require('./package.json');
 const runBackground = require('./utils/run-background');
+const config = require('./utils/get-config');
 
 console.log('Update workflow');
 
@@ -45,4 +46,5 @@ async function download(url, target) {
   console.log(`Downloaded the new version!`);
   console.log('Updating the workflow...');
   runBackground(filepath, 'open');
+  config.set('shouldUpdate', false);
 })();
