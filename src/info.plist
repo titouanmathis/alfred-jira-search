@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.titouanmathis.alfred-jira-search</string>
-	<key>version</key>
-	<string>2.0.5</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -124,19 +122,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>7F8BAF72-F09C-4E5A-933F-6849A79F2C74</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>C4021E2F-99EE-4EFF-BF82-763D2AAAB4E0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
 		<array>
 			<dict>
@@ -181,6 +166,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>77187584-E6CD-4D35-9432-3FACB301C9DF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9A56B84E-E632-4C27-BF38-BF8DE4D8CB7C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C4021E2F-99EE-4EFF-BF82-763D2AAAB4E0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -283,7 +281,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>7F8BAF72-F09C-4E5A-933F-6849A79F2C74</string>
+				<string>9A56B84E-E632-4C27-BF38-BF8DE4D8CB7C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -371,7 +369,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Generate one on https://id.atlassian.net</string>
+				<string>Generate one on https://id.atlassian.net → "{var:token}"</string>
 				<key>title</key>
 				<string>Enter your Jira token</string>
 				<key>type</key>
@@ -489,29 +487,51 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>fixedorder</key>
-				<false/>
-				<key>items</key>
-				<string>[{"title":"Configure your Jira token","arg":"token","subtitle":"Generate one on https:\/\/id.atlassian.net → \"{var:token}\""},{"title":"Configure your Jira organization name","arg":"org","subtitle":"https:\/\/JIRA_ORG_NAME.atlassian.net → \"{var:org}\""},{"title":"Configure your Jira username","arg":"email","subtitle":"The email you use to login → \"{var:username}\""}]</string>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>jconf</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string></string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node configure.js</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Press ⏎ to configure the required values</string>
 				<key>title</key>
-				<string></string>
+				<string>Configure the workflow</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.listfilter</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>7F8BAF72-F09C-4E5A-933F-6849A79F2C74</string>
+			<string>9A56B84E-E632-4C27-BF38-BF8DE4D8CB7C</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -682,7 +702,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>https://JIRA_ORG_NAME.atlassian.net</string>
+				<string>JIRA_ORG in https://JIRA_ORG.atlassian.net → "{var:org}"</string>
 				<key>title</key>
 				<string>Enter your Jira organization name</string>
 				<key>type</key>
@@ -1074,7 +1094,7 @@ When using the `jj` command, some smart filtering can be done:
 		<key>413EC2EE-73B0-4AA3-8C8E-24561DDCF51F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>655</integer>
+			<integer>605</integer>
 			<key>ypos</key>
 			<integer>665</integer>
 		</dict>
@@ -1106,17 +1126,10 @@ When using the `jj` command, some smart filtering can be done:
 			<key>ypos</key>
 			<integer>45</integer>
 		</dict>
-		<key>7F8BAF72-F09C-4E5A-933F-6849A79F2C74</key>
-		<dict>
-			<key>xpos</key>
-			<integer>430</integer>
-			<key>ypos</key>
-			<integer>115</integer>
-		</dict>
 		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
 		<dict>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>455</integer>
 			<key>ypos</key>
 			<integer>665</integer>
 		</dict>
@@ -1140,6 +1153,13 @@ When using the `jj` command, some smart filtering can be done:
 			<integer>965</integer>
 			<key>ypos</key>
 			<integer>45</integer>
+		</dict>
+		<key>9A56B84E-E632-4C27-BF38-BF8DE4D8CB7C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>445</integer>
+			<key>ypos</key>
+			<integer>115</integer>
 		</dict>
 		<key>A5F8879A-6C25-4D1C-A887-8F0BFCE244CD</key>
 		<dict>
@@ -1172,7 +1192,7 @@ When using the `jj` command, some smart filtering can be done:
 		<key>C40BDC92-8E13-46F6-BE43-A07F107DD105</key>
 		<dict>
 			<key>xpos</key>
-			<integer>245</integer>
+			<integer>280</integer>
 			<key>ypos</key>
 			<integer>570</integer>
 		</dict>
@@ -1186,7 +1206,7 @@ When using the `jj` command, some smart filtering can be done:
 		<key>CFA18E1E-0C41-4E76-8ACF-E360DCAFD259</key>
 		<dict>
 			<key>xpos</key>
-			<integer>335</integer>
+			<integer>350</integer>
 			<key>ypos</key>
 			<integer>145</integer>
 		</dict>
@@ -1195,7 +1215,7 @@ When using the `jj` command, some smart filtering can be done:
 			<key>xpos</key>
 			<integer>25</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>145</integer>
 		</dict>
 		<key>E87618D0-8FE8-4F59-AD38-B83CC662D91C</key>
 		<dict>
@@ -1221,6 +1241,8 @@ When using the `jj` command, some smart filtering can be done:
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
+	<key>version</key>
+	<string>2.1.0</string>
 	<key>webaddress</key>
 	<string>https://www.titouanmathis.com</string>
 </dict>
