@@ -21,17 +21,20 @@ if (!(config.get('org') && config.get('token') && config.get('username'))) {
   );
 }
 
+let items = [];
+
 if (config.get('shouldUpdate')) {
-  return alfred.output(
-    [
-      {
-        title: '🎉 A new version is available!',
-        subtitle: 'Press ⏎ to install it automatically.',
-        arg: 'update',
+  items.push({
+    title: 'A new version is available',
+    subtitle: 'Press ⏎ to install it automatically or ⌘+⏎ to open the releases page',
+    arg: 'update',
+    mods: {
+      cmd: {
+        subtitle: 'Press ⏎ to open the workflow releases page',
+        arg: 'https://github.com/titouanmathis/alfred-jira-search/releases',
       },
-    ],
-    { variables: config.store }
-  );
+    },
+  });
 }
 
 // Update data in the background
@@ -40,13 +43,16 @@ runBackground('get-data.js');
 const issues = data.get('items') || [];
 
 if (!issues.length) {
-  return alfred.output([
-    {
-      title: `No results for "${alfred.input}"...`,
-      subtitle: 'Open your query as a JQL search in Jira →',
-      arg: `https://${config.get('org')}.atlassian.net/issues/?jql=${alfred.input}`,
-    },
-  ]);
+  items.push({
+    title: `No results for "${alfred.input}"`,
+    subtitle: 'Open your query as a JQL search in Jira →',
+    arg: `https://${config.get('org')}.atlassian.net/issues/?jql=${alfred.input}`,
+  });
+} else if (items.length) {
+  // Remove uid to avoid sorting when there is an update
+  items = items.concat(issues.map(({ uid, ...issue }) => issue));
+} else {
+  items = items.concat(issues);
 }
 
-return alfred.output(issues, { rerun: 10 });
+alfred.output(items, { rerun: 5, variables: config.store });
