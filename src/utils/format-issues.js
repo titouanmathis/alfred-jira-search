@@ -68,6 +68,11 @@ module.exports = (config, issues) =>
         }
       }
 
-      return `p=${project} u=${assignee} s=${fields.status.name} ${sprint} ${key} ${fields.summary}`;
+      let account = '';
+      if (fields['io.tempo.jira__account'] && fields['io.tempo.jira__account'].value) {
+        account = `a=${fields['io.tempo.jira__account'].value}`;
+      }
+
+      return `p=${project} u=${assignee} s=${fields.status.name} ${account} ${sprint} ${key} ${fields.summary}`;
     },
   }));

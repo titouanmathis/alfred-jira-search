@@ -19,6 +19,7 @@ const fields = [
   'timeestimate',
   'updated',
   'customfield_10006',
+  'io.tempo.jira__account',
 ].join(',');
 
 const MAX_RESULTS = 100;
