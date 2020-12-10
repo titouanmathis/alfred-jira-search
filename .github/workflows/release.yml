@@ -21,6 +21,7 @@ jobs:
       - run: npm run build
 
       # @see https://github.com/actions/create-release/issues/38#issuecomment-715327220
+      # @see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files
       - name: Prepare the changelog from the tag message
         id: prepare_changelog
         run: |
@@ -32,6 +33,8 @@ jobs:
           # Parse tag message
           CHANGELOG=$(git tag -l --format='%(contents)' $GITHUB_REF | tail -n+3)
 
+          echo $CHANGELOG
+
           # Set markdown titles
           CHANGELOG=${CHANGELOG/Added/## Added}
           CHANGELOG=${CHANGELOG/Fixed/## Fixed}
@@ -40,15 +43,20 @@ jobs:
           CHANGELOG=${CHANGELOG/Deprecated/## Deprecated}
           CHANGELOG=${CHANGELOG/Security/## Security}
 
+          echo $CHANGELOG
+
           # Remove PGP signature
           CHANGELOG="${CHANGELOG%-----BEGIN*}"
+
+          echo $CHANGELOG
 
           # Change linebreaks and other special characters
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
 
-          echo "Setting changelog body to\n\n$CHANGELOG\n"
+          echo "Setting changelog body to:"
+          echo $CHANGELOG
 
           echo 'changelog<<EOF' >> $GITHUB_ENV
           echo $CHANGELOG >> $GITHUB_ENV
@@ -62,8 +70,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: v${{ env.GITHUB_ENV.release_version }}
-          body: ${{ env.GITHUB_ENV.changelog }}
+          release_name: v${{ env.release_version }}
+          body: ${{ env.changelog }}
           draft: false
           prerelease: false
 

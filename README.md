@@ -40,4 +40,7 @@ jj s=<STATUS>
 
 # Filter by sprint status
 jj sp=<SPRINT_STATUS>
+
+# Filter by Tempo account name (requires Tempo)
+jj a=<ACCOUNT_NAME>
 ```
