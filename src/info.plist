@@ -467,7 +467,7 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>email</string>
+						<string>username</string>
 						<key>outputlabel</key>
 						<string>Configure username</string>
 						<key>uid</key>
