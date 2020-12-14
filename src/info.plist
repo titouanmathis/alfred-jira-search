@@ -1242,7 +1242,7 @@ When using the `jj` command, some smart filtering can be done:
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2.2.0</string>
+	<string>2.2.1</string>
 	<key>webaddress</key>
 	<string>https://www.titouanmathis.com</string>
 </dict>
