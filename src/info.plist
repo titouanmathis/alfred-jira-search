@@ -1113,7 +1113,11 @@
 
 Use `jj` to display and filter all the unresolved Jira issues of your Jira cloud instance. 
 
+Use `jb` to display and filter all your Jira boards.
+
 Use `ju` to force update the local data (default cache is 5min).
+
+Use `jconf` to configure the workflow.
 
 ## Filtering
 
