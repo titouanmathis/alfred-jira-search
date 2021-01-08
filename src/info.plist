@@ -122,6 +122,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>83565831-BD2C-482E-8E00-DF521E410E33</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>04986CE9-10B2-4550-B820-A0230F300ABF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
 		<array>
 			<dict>
@@ -807,6 +820,55 @@
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>jb</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Retrieving suggestions...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node boards.js "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Jira boards with suggestions</string>
+				<key>title</key>
+				<string>Search Jira boards</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>83565831-BD2C-482E-8E00-DF521E410E33</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
@@ -1030,7 +1092,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node update-data.js --force</string>
+				<string>./node_modules/.bin/run-node update-data.js --force &amp;&amp; ./node_modules/.bin/run-node update-data-boards.js --force</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1094,9 +1156,9 @@ When using the `jj` command, some smart filtering can be done:
 		<key>413EC2EE-73B0-4AA3-8C8E-24561DDCF51F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>605</integer>
+			<integer>575</integer>
 			<key>ypos</key>
-			<integer>665</integer>
+			<integer>820</integer>
 		</dict>
 		<key>639E3A4E-91ED-4CA0-AF7C-5402710650FF</key>
 		<dict>
@@ -1126,12 +1188,19 @@ When using the `jj` command, some smart filtering can be done:
 			<key>ypos</key>
 			<integer>45</integer>
 		</dict>
+		<key>83565831-BD2C-482E-8E00-DF521E410E33</key>
+		<dict>
+			<key>xpos</key>
+			<integer>25</integer>
+			<key>ypos</key>
+			<integer>285</integer>
+		</dict>
 		<key>8AC8E160-F7AF-45DF-9224-23D30C766E16</key>
 		<dict>
 			<key>xpos</key>
-			<integer>455</integer>
+			<integer>425</integer>
 			<key>ypos</key>
-			<integer>665</integer>
+			<integer>820</integer>
 		</dict>
 		<key>908C9B0F-86E6-4A5B-9FD2-8C3D7677988F</key>
 		<dict>
@@ -1171,9 +1240,9 @@ When using the `jj` command, some smart filtering can be done:
 		<key>A62279E7-77C3-43D1-B7C0-E08C3EEA7889</key>
 		<dict>
 			<key>xpos</key>
-			<integer>60</integer>
+			<integer>30</integer>
 			<key>ypos</key>
-			<integer>665</integer>
+			<integer>820</integer>
 		</dict>
 		<key>BAF0ADEB-57C2-4F21-A0B6-75394A49F5EE</key>
 		<dict>
@@ -1192,9 +1261,9 @@ When using the `jj` command, some smart filtering can be done:
 		<key>C40BDC92-8E13-46F6-BE43-A07F107DD105</key>
 		<dict>
 			<key>xpos</key>
-			<integer>280</integer>
+			<integer>250</integer>
 			<key>ypos</key>
-			<integer>570</integer>
+			<integer>725</integer>
 		</dict>
 		<key>CDBFFFDA-E86E-47CA-A2B0-CC9F47335EFB</key>
 		<dict>

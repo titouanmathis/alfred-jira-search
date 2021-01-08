@@ -1,3 +1,3 @@
 module.exports = {
-	extends: '@studiometa/eslint-config',
+  extends: '@studiometa/eslint-config',
 };
