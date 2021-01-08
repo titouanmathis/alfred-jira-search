@@ -38,7 +38,7 @@ if (config.get('shouldUpdate')) {
 }
 
 // Update data in the background
-runBackground('get-data.js');
+runBackground('update-data.js');
 
 const issues = data.get('items') || [];
 
