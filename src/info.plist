@@ -1092,7 +1092,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node update-data.js --force &amp;&amp; ./node_modules/.bin/run-node update-data-boards.js --force</string>
+				<string>./node_modules/.bin/run-node update-data.js --force &amp;&amp; ./node_modules/.bin/run-node update-data-boards.js --force &amp;&amp; ./node_modules/.bin/run-node utils/check-version.js</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

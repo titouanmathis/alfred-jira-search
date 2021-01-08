@@ -8,6 +8,7 @@ const defaultCmd = path.resolve(__dirname, '../node_modules/.bin/run-node');
  * @return {ChildProcess}
  */
 module.exports = (args, cmd = defaultCmd) => {
+  // console.log('Background task', cmd, args);
   const child = childProcess.spawn(cmd, args.split(' '), {
     detached: true,
     stdio: 'ignore',
