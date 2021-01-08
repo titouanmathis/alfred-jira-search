@@ -4,8 +4,8 @@ const formatBoardUrl = (org, id) =>
 module.exports = (config, boards) =>
   boards.map(({ id, name, location }) => ({
     uid: id,
-    title: `${location.projectKey || location.displayName} – ${name}`,
-    subtitle: formatBoardUrl(config.get('org'), id),
+    title: `${name}`,
+    subtitle: `${location.displayName}`,
     arg: formatBoardUrl(config.get('org'), id),
     quicklookurl: formatBoardUrl(config.get('org'), id),
     text: {
