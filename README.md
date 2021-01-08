@@ -23,6 +23,7 @@ You will be asked to configure the workflow with the following values :
 | Command | Action |
 |-|-|
 | `jj` | Display a list of unresolved issues sorted by their last updated date. The list is filtered by Alfred. |
+| `jb` | Display a list of all Jira boards. |
 | `ju` | Force update the local data |
 | `jconf` | Edit the workflow configuration |
 
