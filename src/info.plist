@@ -1092,7 +1092,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node update-data.js --force &amp;&amp; ./node_modules/.bin/run-node update-data-boards.js --force</string>
+				<string>./node_modules/.bin/run-node update-data.js --force &amp;&amp; ./node_modules/.bin/run-node update-data-boards.js --force &amp;&amp; ./node_modules/.bin/run-node utils/check-version.js</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1113,7 +1113,11 @@
 
 Use `jj` to display and filter all the unresolved Jira issues of your Jira cloud instance. 
 
+Use `jb` to display and filter all your Jira boards.
+
 Use `ju` to force update the local data (default cache is 5min).
+
+Use `jconf` to configure the workflow.
 
 ## Filtering
 
@@ -1311,7 +1315,7 @@ When using the `jj` command, some smart filtering can be done:
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2.3.1</string>
+	<string>2.3.2</string>
 	<key>webaddress</key>
 	<string>https://www.titouanmathis.com</string>
 </dict>

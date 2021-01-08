@@ -3,10 +3,9 @@ const pkg = require('../package.json');
 const config = require('./get-config');
 const runBackground = require('./run-background');
 
-const testUpdate = () => {
-  runBackground(path.resolve(__dirname, 'check-version.js'));
-  return config.get('shouldUpdate') && pkg.version !== config.get('latestVersion');
-};
+runBackground(path.resolve(__dirname, 'check-version.js'));
+
+const testUpdate = () => config.get('shouldUpdate') && pkg.version !== config.get('latestVersion');
 
 const getUpdateItem = () => ({
   title: `A new version is available: ${pkg.version} → ${config.get('latestVersion')}`,
