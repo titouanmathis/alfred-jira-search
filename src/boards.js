@@ -2,7 +2,7 @@ const alfred = require('./utils/get-alfred');
 const config = require('./utils/get-config');
 const testConfig = require('./utils/test-config');
 const { testUpdate, getUpdateItem } = require('./utils/test-update');
-const data = require('./utils/get-data-config');
+const data = require('./utils/get-data-config-boards');
 const runBackground = require('./utils/run-background');
 
 (() => {
@@ -16,13 +16,13 @@ const runBackground = require('./utils/run-background');
   }
 
   // Update data in the background
-  runBackground('update-data.js');
+  runBackground('update-data-boards.js');
 
   const issues = data.get('items') || [];
 
   if (!issues.length) {
     items.push({
-      title: `There is no issue matching  "${alfred.input}"`,
+      title: `There is no board matching "${alfred.input}"`,
       subtitle: 'Press ⏎ to open your search in Jira →',
       arg: `https://${config.get('org')}.atlassian.net/secure/QuickSearch.jspa?searchString=${
         alfred.input
