@@ -891,7 +891,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node configure.js --org "{query}"</string>
+				<string>./node_modules/.bin/run-node configure.js --username "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
