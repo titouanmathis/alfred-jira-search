@@ -1,3 +1,9 @@
+
+const axios = require('axios');
+const svg2png = require('svg-png-converter');
+const fs = require("fs")
+const data = require('./get-data-config');
+
 /**
  * Format seconds to a nice hour + min format.
  *
@@ -39,24 +45,54 @@ function formatSubtitle({ status, assignee, timespent, timeestimate }) {
   return subtitle.join(' → ');
 }
 
+
 module.exports = (config, issues) =>
   issues.map(({ id, key, fields }) => ({
     uid: id,
     title: `${key} – ${fields.summary}`,
-    subtitle: `${formatSubtitle(fields)}`,
+    subtitle: `${formatSubtitle(fields)}${ (fields.issuetype.description) ? " | " + fields.issuetype.description.substring(0,140)  : ""  }`,
     arg: `https://${config.get('org')}.atlassian.net/browse/${key}`,
     quicklookurl: `https://${config.get('org')}.atlassian.net/browse/${key}`,
-    icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
+    // icon: { type: 'png', path: `static/10500.png` },
     text: {
       copy: key,
     },
+    valid: true,
+    autocomplete: key,
     mods: {
       cmd: {
         subtitle: 'Copy the issue key whit ⌘+C',
       },
     },
+    get icon() {
+        let filePath = data.path + "."+  fields.issuetype.avatarId + ".png"
+        if (fields.issuetype.avatarId){
+            if (!fs.existsSync(filePath)) {
+                axios.get(fields.issuetype.iconUrl).then(
+                    res => {
+                        svg2png.svg2png({
+                            input: res.data.trim().replaceAll('16px','32px'),
+                            encoding: 'raw',
+                            format: 'png'
+                        }).then(
+                            img => {
+                                fs.writeFile(filePath, img, 'ascii', res => {  } );
+                            }
+                        )
+                    }
+                )
+            }
+            return { type: 'png', path: filePath }
+        }else
+        {
+            return { type: 'png', path: "./icon.png" }
+        }
+
+    },
     get match() {
-      const project = key.split('-').shift();
+      let projecSplit = key.split('-');
+      const project = projecSplit.shift();
+      const number = projecSplit.shift();
       const assignee = fields.assignee ? fields.assignee.displayName : 'unassigned';
 
       // Add sprint state
@@ -73,6 +109,6 @@ module.exports = (config, issues) =>
         account = `a=${fields['io.tempo.jira__account'].value}`;
       }
 
-      return `p=${project} u=${assignee} s=${fields.status.name} ${account} ${sprint} ${key} ${fields.summary}`;
+      return `${project} ${number} ${key} ${fields.summary} ${assignee} ${fields.status.name} `;
     },
   }));
