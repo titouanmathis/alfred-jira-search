@@ -39,11 +39,20 @@ function formatSubtitle({ status, assignee, timespent, timeestimate }) {
   return subtitle.join(' → ');
 }
 
+/**
+ * Replace unicode spaces with regular spaces from a string.
+ * @param {string} str The string to modify.
+ * @return {string} The modified string.
+ */
+function removeUnicodeSpaces(str) {
+  return str.replace(/[\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g, ' ');
+}
+
 module.exports = (config, issues) =>
   issues.map(({ id, key, fields }) => ({
     uid: id,
-    title: `${key} – ${fields.summary}`,
-    subtitle: `${formatSubtitle(fields)}`,
+    title: removeUnicodeSpaces(`${key} – ${fields.summary}`),
+    subtitle: removeUnicodeSpaces(`${formatSubtitle(fields)}`),
     arg: `https://${config.get('org')}.atlassian.net/browse/${key}`,
     quicklookurl: `https://${config.get('org')}.atlassian.net/browse/${key}`,
     icon: { type: 'png', path: `static/${fields.issuetype.avatarId}.png` },
@@ -73,6 +82,6 @@ module.exports = (config, issues) =>
         account = `a=${fields['io.tempo.jira__account'].value}`;
       }
 
-      return `p=${project} u=${assignee} s=${fields.status.name} ${account} ${sprint} ${key} ${fields.summary}`;
+      return removeUnicodeSpaces(`p=${project} u=${assignee} s=${fields.status.name} ${account} ${sprint} ${key} ${fields.summary}`);
     },
   }));
