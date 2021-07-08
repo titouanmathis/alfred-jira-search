@@ -16,4 +16,5 @@ const config = require('./get-config');
 
   config.set('shouldUpdate', hasNewVersion);
   config.set('latestVersion', version);
+  config.set('latestUpdateCheck', new Date().toLocaleString());
 })();

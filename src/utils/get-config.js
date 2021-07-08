@@ -18,6 +18,9 @@ const config = new Conf({
     latestVersion: {
       type: 'string',
     },
+    latestUpdateCheck: {
+      type: 'string',
+    }
   },
 });
 
