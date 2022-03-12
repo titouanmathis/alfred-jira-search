@@ -61,6 +61,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>A35A55C8-FD67-4430-B9ED-CEE506E23ED4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>ADD9DC30-FA11-417D-B918-22F37CA9B8A4</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>123FB05C-39F7-4579-BB2E-512EEE97FCAF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -192,6 +204,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>C4021E2F-99EE-4EFF-BF82-763D2AAAB4E0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A35A55C8-FD67-4430-B9ED-CEE506E23ED4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>07D9271E-1A2A-47E9-B330-FFBEB370C450</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -549,55 +574,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>2</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>jj</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>1</integer>
-				<key>queuemode</key>
-				<integer>2</integer>
-				<key>runningsubtext</key>
-				<string>Retrieving suggestions...</string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Search Jira issues with suggestions</string>
-				<key>title</key>
-				<string>Search Jira issues</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>E529879A-321E-4626-A70A-3F0A489B9754</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -649,6 +625,20 @@
 						<key>uid</key>
 						<string>D20EE1F8-DBBC-451D-B460-69F142785C38</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^timer-</string>
+						<key>outputlabel</key>
+						<string>Start timer</string>
+						<key>uid</key>
+						<string>ADD9DC30-FA11-417D-B918-22F37CA9B8A4</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
@@ -659,6 +649,56 @@
 			<string>04986CE9-10B2-4550-B820-A0230F300ABF</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>jj</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Retrieving suggestions...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js "{query}"
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search Jira issues with suggestions</string>
+				<key>title</key>
+				<string>Search Jira issues</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E529879A-321E-4626-A70A-3F0A489B9754</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1006,6 +1046,53 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
+				<string>KEY=$1
+KEY=${KEY/timer-/}
+
+echo "$(/usr/local/bin/node /usr/local/bin/timer start $KEY)"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A35A55C8-FD67-4430-B9ED-CEE506E23ED4</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Timer for {var:key}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>07D9271E-1A2A-47E9-B330-FFBEB370C450</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
 				<string>open "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -1143,12 +1230,19 @@ When using the `jj` command, some smart filtering can be done:
 			<key>ypos</key>
 			<integer>150</integer>
 		</dict>
+		<key>07D9271E-1A2A-47E9-B330-FFBEB370C450</key>
+		<dict>
+			<key>xpos</key>
+			<integer>620</integer>
+			<key>ypos</key>
+			<integer>520</integer>
+		</dict>
 		<key>123FB05C-39F7-4579-BB2E-512EEE97FCAF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>275</integer>
+			<integer>445</integer>
 			<key>ypos</key>
-			<integer>425</integer>
+			<integer>650</integer>
 		</dict>
 		<key>25DE9561-471B-4BBE-B181-A7ADDDAB25B7</key>
 		<dict>
@@ -1234,6 +1328,13 @@ When using the `jj` command, some smart filtering can be done:
 			<key>ypos</key>
 			<integer>115</integer>
 		</dict>
+		<key>A35A55C8-FD67-4430-B9ED-CEE506E23ED4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>450</integer>
+			<key>ypos</key>
+			<integer>520</integer>
+		</dict>
 		<key>A5F8879A-6C25-4D1C-A887-8F0BFCE244CD</key>
 		<dict>
 			<key>xpos</key>
@@ -1286,9 +1387,9 @@ When using the `jj` command, some smart filtering can be done:
 		<key>E529879A-321E-4626-A70A-3F0A489B9754</key>
 		<dict>
 			<key>xpos</key>
-			<integer>25</integer>
+			<integer>20</integer>
 			<key>ypos</key>
-			<integer>145</integer>
+			<integer>155</integer>
 		</dict>
 		<key>E87618D0-8FE8-4F59-AD38-B83CC662D91C</key>
 		<dict>

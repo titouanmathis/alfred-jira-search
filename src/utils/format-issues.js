@@ -54,6 +54,9 @@ function removeUnicodeSpaces(str) {
 
 module.exports = (config, issues) =>
   issues.map(({ id, key, fields }) => ({
+    variables: {
+      key,
+    },
     uid: id,
     title: removeUnicodeSpaces(`${key} – ${fields.summary}`),
     subtitle: removeUnicodeSpaces(`${formatSubtitle(fields)}`),
@@ -65,7 +68,11 @@ module.exports = (config, issues) =>
     },
     mods: {
       cmd: {
-        subtitle: 'Copy the issue key whit ⌘+C',
+        subtitle: 'Copy the issue key with ⌘+C',
+      },
+      alt: {
+        subtitle: 'Start a timer with ⌥+⏎',
+        arg: `timer-${key}`,
       },
     },
     get match() {
