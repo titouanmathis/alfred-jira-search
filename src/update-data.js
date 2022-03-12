@@ -63,7 +63,7 @@ function getPageResult(offset) {
             startAt: offset,
             maxResults: MAX_RESULTS,
             fields,
-            jql: 'resolution = Unresolved ORDER BY updated DESC',
+            jql: 'project = "DEV" OR created >= -200d OR updated >= -90d ORDER BY updated DESC',
           },
         })
         .then((response) => {
