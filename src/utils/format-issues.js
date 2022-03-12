@@ -29,11 +29,15 @@ function formatTime(seconds) {
  * @param  {Object} options.timeestimate The estimated time to spend on the task
  * @return {String}                      A formatted string
  */
-function formatSubtitle({ status, assignee, timespent, timeestimate }) {
+function formatSubtitle({ status, assignee, timespent, timeestimate, ...fields }) {
   const subtitle = [status.name.trim(), assignee ? assignee.displayName : 'unassigned'];
 
   if (timespent || timeestimate) {
     subtitle.push(`${formatTime(timespent) || '…'} / ${formatTime(timeestimate) || '…'}`);
+  }
+
+  if (fields['io.tempo.jira__account']?.value && fields['io.tempo.jira__account']?.value !== 'HorsTMA') {
+    subtitle.push(fields['io.tempo.jira__account'].value);
   }
 
   return subtitle.join(' → ');
