@@ -1,7 +1,5 @@
 const pkg = require('./package.json');
-const Alfred = require('./utils/alfred');
-
-const alfred = new Alfred({ name: `${pkg.name}@${pkg.version}` });
+const alfred = require('./utils/get-alfred.js');
 const config = require('./utils/get-config.js');
 
 (() => {
