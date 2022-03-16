@@ -48,6 +48,9 @@
     "prettier": "^2.3.2"
   },
   "engines": {
-    "node": ">=11"
-  }
+    "node": ">=16"
+  },
+  "workspaces": [
+    "src/"
+  ]
 }
