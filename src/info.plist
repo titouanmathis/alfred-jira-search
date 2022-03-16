@@ -1198,7 +1198,7 @@ echo "$(/usr/local/bin/node /usr/local/bin/timer start $KEY)"</string>
 	<key>readme</key>
 	<string>## Usage
 
-Use `jj` to display and filter all the unresolved Jira issues of your Jira cloud instance. 
+Use `jj` to display and filter all the unresolved Jira issues of your Jira cloud instance.
 
 Use `jb` to display and filter all your Jira boards.
 
@@ -1413,8 +1413,11 @@ When using the `jj` command, some smart filtering can be done:
 			<integer>200</integer>
 		</dict>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
+	<key>variables</key>
+	<dict>
+		<key>JQL_QUERY</key>
+		<string>created >= -200d OR updated >= -90d ORDER BY updated DESC</string>
+	</dict>
 	<key>version</key>
 	<string>2.3.3</string>
 	<key>webaddress</key>

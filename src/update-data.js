@@ -63,7 +63,8 @@ function getPageResult(offset) {
             startAt: offset,
             maxResults: MAX_RESULTS,
             fields,
-            jql: 'project = "DEV" OR created >= -200d OR updated >= -90d ORDER BY updated DESC',
+            jql:
+              process.env.JQL_QUERY ?? 'created >= -200d OR updated >= -90d ORDER BY updated DESC',
           },
         })
         .then((response) => {
