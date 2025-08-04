@@ -1,5 +1,7 @@
 # Alfred Jira Search
 
+> ⚠️ I do not use Jira anymore, this project will not receive updates anymore. Feel free to fork it and make it your own.
+
 [![NPM Version](https://img.shields.io/npm/v/alfred-jira-search.svg?style=flat-square)](https://www.npmjs.com/package/alfred-jira-search)
 [![Dependency Status](https://img.shields.io/david/titouanmathis/alfred-jira-search?style=flat-square)](https://david-dm.org/titouanmathis/alfred-jira-search)
 [![devDependency Status](https://img.shields.io/david/dev/titouanmathis/alfred-jira-search?style=flat-square)](https://david-dm.org/titouanmathis/alfred-jira-search?type=dev)
